@@ -1,1 +1,1 @@
-# FinalProject
+Harry Potter Trivia
