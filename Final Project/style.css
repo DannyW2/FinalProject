@@ -16,18 +16,19 @@ body {
 }
 
 .answer {
-    background-color: lightblue;
+    background-color: skyblue;
     border-radius: 5px;
     width: 400px;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .answer:hover {
     transform: scale(110%);
+    box-shadow: 2px 2px 20px skyblue;
 }
 
 .btn {
@@ -38,6 +39,7 @@ body {
 
 .btn:hover {
     transform: scale(110%);
+    box-shadow: 2px 2px 30px white;
 }
 
 .hidden {
@@ -49,8 +51,23 @@ body {
     color: white;
 }
 
+.correct:hover {
+    box-shadow: 2px 2px 20px green;
+}
+
 .incorrect {
     background-color: red;
+}
+
+.incorrect:hover {
+    box-shadow: 2px 2px 20px red;
+}
+
+.score {
+    color: white;
+    font-size: 100px;
+    text-shadow: 3px 3px 8px gray;
+    /* visibility: hidden; */
 }
 
 #start {
@@ -64,15 +81,15 @@ body {
     font-size: 50px;
     word-wrap: break-word;
     color: white;
-    text-shadow: 1.25px 1.25px gray;
+    text-shadow: 1.25px 1.25px 8px gray;
 }
 
 
 #header {
     text-align: center;
-    font-size: 100px;
+    font-size: 80px;
     color: white;
-    text-shadow: 2px 2px gray;
+    text-shadow: 3px 3px 8px gray;
 }
 
 #next {

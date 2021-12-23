@@ -1,5 +1,24 @@
 let startButton = document.querySelector('#start').addEventListener("click", startQuiz)
 
+let score = 0
+
+function addScore() {
+    score++
+    document.querySelector('.score').innerHTML = `${score}/5`
+}
+
+function displayScore() {
+    document.querySelector('.score').innerHTML = `${score}/5`
+}
+
+function disableButton() {
+    document.querySelector('#answer1').disabled = true
+    document.querySelector('#answer2').disabled = true
+    document.querySelector('#answer3').disabled = true
+    document.querySelector('#answer4').disabled = true
+}
+
+
 function startQuiz () {
     document.querySelector('.hide').style.display = "none"
     document.querySelector('.hidden').style.visibility = "visible"
@@ -15,17 +34,25 @@ function firstQuestion() {
     document.querySelector('#answer4').innerHTML = questions[0].answers[3].text
     let firstAnswerButton = document.querySelectorAll('.answer')
     firstAnswerButton.forEach(answerOne => {
-    answerOne.addEventListener('click', firstAnswer)})
+    answerOne.addEventListener('click', firstAnswer)
+    answerOne.addEventListener('click', disableButton)
+    answerOne.addEventListener('click', displayScore)})
     function firstAnswer() {
         document.querySelector('#answer1').classList.add('incorrect')
         document.querySelector('#answer2').classList.add('correct')
         document.querySelector('#answer3').classList.add('incorrect')
         document.querySelector('#answer4').classList.add('incorrect')
     }
+    document.querySelector('#answer2').addEventListener('click', addScore)
     let nextButton = document.querySelector('#next').addEventListener("click", secondQuestion)
 }
 
 function secondQuestion() {
+        document.querySelector('#answer1').disabled = false
+        document.querySelector('#answer2').disabled = false
+        document.querySelector('#answer3').disabled = false
+        document.querySelector('#answer4').disabled = false
+    
     let clearAnswer = document.querySelectorAll('.answer')
     clearAnswer.forEach(clearAns => {
     clearAns.classList.remove('incorrect', 'correct')})
@@ -45,10 +72,16 @@ function secondQuestion() {
         document.querySelector('#answer3').classList.add('correct')
         document.querySelector('#answer4').classList.add('incorrect')
     }
+    document.querySelector('#answer3').addEventListener('click', addScore)
     let nextButton = document.querySelector('#next').addEventListener("click", thirdQuestion)
 }
 
 function thirdQuestion() {
+        document.querySelector('#answer1').disabled = false
+        document.querySelector('#answer2').disabled = false
+        document.querySelector('#answer3').disabled = false
+        document.querySelector('#answer4').disabled = false
+    
     let clearAnswer = document.querySelectorAll('.answer')
     clearAnswer.forEach(clearAns => {
     clearAns.classList.remove('incorrect', 'correct')})
@@ -68,10 +101,16 @@ function thirdQuestion() {
         document.querySelector('#answer3').classList.add('incorrect')
         document.querySelector('#answer4').classList.add('incorrect')
     }
+    document.querySelector('#answer1').addEventListener('click', addScore)
     let nextButton = document.querySelector('#next').addEventListener("click", fourthQuestion)
 }
 
 function fourthQuestion() {
+        document.querySelector('#answer1').disabled = false
+        document.querySelector('#answer2').disabled = false
+        document.querySelector('#answer3').disabled = false
+        document.querySelector('#answer4').disabled = false
+    
     let clearAnswer = document.querySelectorAll('.answer')
     clearAnswer.forEach(clearAns => {
     clearAns.classList.remove('incorrect', 'correct')})
@@ -91,10 +130,16 @@ function fourthQuestion() {
         document.querySelector('#answer3').classList.add('incorrect')
         document.querySelector('#answer4').classList.add('incorrect')
     }
+    document.querySelector('#answer2').addEventListener('click', addScore)
     let nextButton = document.querySelector('#next').addEventListener("click", fifthQuestion)
 }
 
 function fifthQuestion() {
+        document.querySelector('#answer1').disabled = false
+        document.querySelector('#answer2').disabled = false
+        document.querySelector('#answer3').disabled = false
+        document.querySelector('#answer4').disabled = false
+    
     let clearAnswer = document.querySelectorAll('.answer')
     clearAnswer.forEach(clearAns => {
     clearAns.classList.remove('incorrect', 'correct')})
@@ -114,6 +159,7 @@ function fifthQuestion() {
         document.querySelector('#answer3').classList.add('incorrect')
         document.querySelector('#answer4').classList.add('correct')
     }
+    document.querySelector('#answer4').addEventListener('click', addScore)
     document.querySelector('#next').style.visibility = 'hidden'
 }
 
